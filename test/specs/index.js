@@ -1,6 +1,6 @@
 // var assert = require('assert');
-describe('webdriver.io page', function() {
-    it('should have the right title - the fancy generator way', function () {
+describe('Webdriver sample', function() {
+    it('collect valid rows', function () {
         browser.url('/');
         var title = browser.getTitle();
         var selectBox = browser.element('#ddlPredefinedSelect');
@@ -16,8 +16,6 @@ describe('webdriver.io page', function() {
           //Is the sorting required?
           //No other selector is working :(
         // browser.click('//*[@id="tblSearchResults"]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[10]/b/u')
-        // browser.click('//*[@id="tblSearchResults"]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[10]/b/u')
-
 
         var rows = browser.elements('//tr[@id[starts-with(.,"s_tr1_")]]')
         var idRows = rows.getAttribute(('id'));
@@ -27,6 +25,7 @@ describe('webdriver.io page', function() {
           //Some invalid rows are ending with f
           if(idRows[i].slice(-1) != 'f')
           {
+            if(idRows[i].split("_")[2] != '12309536') //black listed rows
             validRows.push(idRows[i].split("_")[2]);
           }
         }
