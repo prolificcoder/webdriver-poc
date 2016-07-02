@@ -1,0 +1,21 @@
+{
+  "name": "ote-setup",
+  "version": "0.0.1",
+  "description": "A utility script to add watchlists that are ending soon to an OTE account",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ote",
+    "auctions",
+    "utility"
+  ],
+  "author": "Satyajit Malugu",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "webdriverio": "^4.1.1",
+    "wdio-mocha-framework": "^0.3.4"
+  }
+}
