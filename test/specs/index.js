@@ -1,4 +1,4 @@
-var assert = require('assert');
+// var assert = require('assert');
 describe('webdriver.io page', function() {
     it('should have the right title - the fancy generator way', function () {
         browser.url('/');
@@ -12,10 +12,25 @@ describe('webdriver.io page', function() {
           browser.waitUntil(function () {
             return browser.isVisible('#divOverlaySRB') === false
           }, 5000, 'expected spinner to away in 5 secs');
-        var timeLeft = browser.getText('*=Time Left');
-          console.log('is element found' + timeLeft.isVisible()); 
-        browser.click('*=Time Left')
-        // console.log(timeLeft.getValue())
-        // timeLeft.click();
+
+          //Is the sorting required?
+          //No other selector is working :(
+        // browser.click('//*[@id="tblSearchResults"]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[10]/b/u')
+        // browser.click('//*[@id="tblSearchResults"]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[10]/b/u')
+
+
+        var rows = browser.elements('//tr[@id[starts-with(.,"s_tr1_")]]')
+        var idRows = rows.getAttribute(('id'));
+        var validRows =[];
+
+        for(var i=0; i<idRows.length; i++){
+          //Some invalid rows are ending with f
+          if(idRows[i].slice(-1) != 'f')
+          {
+            validRows.push(idRows[i].split("_")[2]);
+          }
+        }
+        console.log(validRows);
     });
 });
+//
